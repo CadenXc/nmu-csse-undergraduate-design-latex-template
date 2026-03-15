@@ -1,8 +1,6 @@
 # ZJU CS/SE Undergraduate Design LaTeX Template
 
-> 浙江大学计算机科学与技术、软件工程专业本科毕业设计 LaTeX 模板
-
-Updated to the new style requirements in 2017.
+> 北方民族大学计算机科学与技术、软件工程专业本科毕业设计 LaTeX 模板
 
 ## Dependencies
 

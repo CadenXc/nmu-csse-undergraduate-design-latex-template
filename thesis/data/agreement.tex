@@ -1,61 +1,58 @@
-{
+\clearpage % 确保承诺书从全新的一页开始
+\bgroup
   \setlength{\parindent}{0em}
-  \linespread{1}
+  \linespread{1.5}\selectfont % 确保行距设置立即生效
 
-  \vspace*{0.6em}
+  % 使用 \centering 代替 center 环境，因为 center 环境自带额外的上下垂直空白
+  \vspace*{1em}
+  {\centering \songti\sanhao 北方民族大学本科毕业论文（设计）诚信承诺书 \par}
 
-  {
-    \centering
-    \songti\xiaoer
-    浙江大学本科生毕业论文（设计）独创性声明 \par
-  }
+  \vspace{1.5em} % 稍微缩小标题和表格的间距
 
-  \vspace{3.1em}
+  \noindent
+  \def\arraystretch{1.6} % 表格全局行高微调
+  \begin{tabular}{|p{0.18\textwidth}|p{0.28\textwidth}|p{0.15\textwidth}|p{0.28\textwidth}|}
+  \hline
+  \centering 学生姓名 & \centering \zjuauthornamec & \centering 年级 & \centering\arraybackslash \zjugrade \\
+  \hline
+  \centering 所学专业 & \centering \zjumajorc & \centering 学号 & \centering\arraybackslash \zjuauthorid \\
+  \hline
+  \centering 所在学院 & \multicolumn{3}{c|}{\zjucollegec} \\
+  \hline
+  \multicolumn{4}{|p{\dimexpr\textwidth-2\tabcolsep-2\arrayrulewidth\relax}|}{
+    \def\arraystretch{1.5}
+    
+    \vspace{0.5em}
+    {\centering \heiti\sanhao 学生承诺 \par} % 同样去掉 center 环境，节省高度
+    
+    \vspace{1em}
+    {\fangsong\sihao \textbf{本人慎重承诺和声明：}} \par
+    
+    \vspace{0.5em}
+    {
+      \songti\sihao 
+      \setlength{\parindent}{2em}
+      \indent 我承诺在毕业论文（设计）过程中严格遵守学校有关规定，在指导教师的安排与指导下独立完成所规定的毕业论文（设计）工作，决不弄虚作假，不请别人代做毕业论文（设计）或抄袭别人的成果。所撰写的毕业论文或毕业设计是在指导老师的指导下自主完成，文中所有引文或引用数据、图表均注解并说明来源，本人愿意为由此引起的后果承担责任。\par
+    }
+    
+    \vspace{4em} % 将签名处的超大间距 6em 缩减到 4em，这是最容易导致溢出的地方
+    \begin{flushright}
+      {\songti\sihao 
+      学生（签名）：\makebox[8em]{\hrulefill} \hspace{2em} \par
+      \vspace{1em}
+      2026 年 \hspace{1em} 月 \hspace{1em} 日 \hspace{2em} \par
+      }
+    \end{flushright}
+    \vspace{0.5em}
+  } \\
+  \hline
+  \end{tabular}
 
-  {
-    \setlength{\parindent}{2em}
-    \linespread{1.6}
-    \songti\xiaosi
-    本人声明所呈交的毕业论文（设计）是本人在导师指导下进行的研究工作及取得的研究成果。除了文中特别加以标注和致谢的地方外，文中不包含其他人已经发表或撰写过的研究成果，也不包含为获得 \underline{\kaiti\sihao\bfseries \makebox[5em]{浙江大学}} 或其他教育机构的学位或证书而使用过的材料。与我一同工作的同志对本研究所做的任何贡献均已在文中作了明确的说明并表示谢意。 \par
-  }
+  \vfill
 
-  \vspace{2.9em}
-
-  {
-    \songti\xiaosi
-    \begin{tabular}{@{} p{0.5\linewidth} p{0.5\linewidth} @{}}
-    作者签名： & 日期： \hspace{4em} 年 \hspace{2em} 月 \hspace{2em} 日 \\
-    \end{tabular} \par
-  }
-
-  \vspace{4.85em}
-
-  {
-    \centering
-    \songti\xiaoer
-    毕业论文（设计）版权使用授权书 \par
-  }
-
-  \vspace{2.2em}
-
-  {
-    \setlength{\parindent}{2em}
-    \linespread{1.6}
-    \songti\xiaosi
-    本文作者完全了解 \underline{\kaiti\sihao\bfseries \makebox[5em]{浙江大学}} 有权保留并向国家有关部门或机构送交本文的复印件和磁盘，允许本文被查阅和借阅。本人授权 \underline{\kaiti\sihao\bfseries \makebox[5em]{浙江大学}} 可以将毕业论文（设计）的全部或部分内容编入有关数据库进行检索和传播，可以采用影印、缩印或扫描等复制手段保存、汇编毕业论文（设计）。
-
-    （保密的毕业论文（设计）在解密后适用本授权书） \par
-  }
-
-  \vspace{2.9em}
-
-  {
-    \songti\xiaosi
-    \begin{tabular}{@{} p{0.5\linewidth} p{0.5\linewidth} @{}}
-    作者签名： & 导师签名： \\
-     & \\
-     & \\
-    日期： \hspace{4em} 年 \hspace{2em} 月 \hspace{2em} 日 & 日期： \hspace{4em} 年 \hspace{2em} 月 \hspace{2em} 日 \\
-    \end{tabular} \par
-  }
-}
+  \begin{flushright}
+    \songti\sihao
+    教务处制
+  \end{flushright}
+\egroup
+\clearpage % 承诺书结束后，干脆利落地换页，不影响正文

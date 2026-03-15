@@ -34,7 +34,7 @@
 \fi
 
 %\RequirePackage[top=2.0cm,bottom=2.4cm,left=3.4cm,right=2.4cm,includehead,includefoot]{geometry}
-\RequirePackage[top=38mm,bottom=38mm,left=32mm,right=32mm,includefoot]{geometry}
+\RequirePackage[top=30mm,bottom=25mm,left=30mm,right=20mm,includefoot]{geometry}
 
 \RequirePackage{ifthen}
 \RequirePackage{calc}
@@ -110,11 +110,20 @@
 
 \let\oldthebibliography\thebibliography
 \let\endoldthebibliography\endthebibliography
-\renewenvironment{thebibliography}[1]{\begin{oldthebibliography}{#1}\setlength{\itemsep}{0em}\setlength{\parskip}{0em}}{\end{oldthebibliography}}
+\renewenvironment{thebibliography}[1]{%
+  \titleformat{\chapter}[block]{\linespread{1.5}\heiti\xiaosan\bfseries\filcenter}{}{0em}{}{}%
+  \titlespacing{\chapter}{0em}{1\baselineskip}{18pt}%
+  \begin{oldthebibliography}{#1}%
+    \wuhao\songti\linespread{1.5}\selectfont%
+    \setlength{\itemsep}{0em}%
+    \setlength{\parskip}{0em}%
+}{\end{oldthebibliography}}
 
-\renewcommand{\baselinestretch}{1.389} % 20pt / 14.4pt
+\renewcommand{\baselinestretch}{1.5} % NMU requires 1.5 line spacing
 \def\verbatim@font{\normalfont\ttfamily\linespread{1}\wuhao}
 \renewcommand{\arraystretch}{1}
+\xpatchcmd{\tabular}{\relax}{\wuhao}{}{}
+\xpatchcmd{\tabular*}{\relax}{\wuhao}{}{}
 
 %\DeclareRobustCommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
 %\DeclareRobustCommand{\xiaochu}{\fontsize{36pt}{\baselineskip}\selectfont}
@@ -188,25 +197,35 @@
 \renewcommand*{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand*{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
+\RequirePackage{zhnumber}
 \RequirePackage{chngcntr}
 \xpatchcmd{\c@t@sin}{\@nameuse{the#2}.}{\arabic{#2}-}{}{}
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
+\counterwithin{equation}{chapter}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 
-\titleformat{\chapter}[block]{\linespread{1}\heiti\sanhao\bfseries\filcenter}{\thechapter}{1em}{}{}
-\titlespacing{\chapter}{0em}{0pt}{18pt}
+\renewcommand*{\thechapter}{第\zhnumber{chapter}章}
+\renewcommand*{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand*{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand*{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+\titleformat{\chapter}[block]{\linespread{1.5}\heiti\xiaosan\bfseries\filcenter}{\thechapter}{1em}{}{}
+\titlespacing{\chapter}{0em}{1\baselineskip}{0pt}
 \titlecontents{chapter}[0em]{}{\songti\sihao\thecontentslabel\hspace{1em}}{\songti\sihao}{\songti\sihao\titlerule*[5pt]{.}\contentspage}
 
-\titleformat{\section}[hang]{\linespread{1}\heiti\sihao\bfseries}{\thesection}{1em}{}{}
-\titlespacing{\section}{0em}{24pt}{6pt}
+\titleformat{\section}[hang]{\linespread{1.5}\heiti\sihao\bfseries}{\thesection}{1em}{}{}
+\titlespacing{\section}{0em}{0pt}{0pt}
 \titlecontents{section}[2em]{}{\songti\xiaosi\thecontentslabel\hspace{1em}}{}{\songti\xiaosi\titlerule*[5pt]{.}\contentspage}
 
-\titleformat{\subsection}[hang]{\linespread{1}\heiti\shisanbang}{\thesubsection}{1em}{}{}
-\titlespacing{\subsection}{0em}{12pt}{6pt}
+\titleformat{\subsection}[hang]{\linespread{1.5}\heiti\xiaosi\bfseries}{\thesubsection}{1em}{}{}
+\titlespacing{\subsection}{0em}{0pt}{0pt}
 \titlecontents{subsection}[4em]{}{\songti\wuhao\thecontentslabel\hspace{1em}}{}{\songti\wuhao\titlerule*[5pt]{.}\contentspage}
 
-\titleformat{\subsubsection}[hang]{\linespread{1}\heiti\xiaosi}{\thesubsubsection}{1em}{}{}
-\titlespacing{\subsubsection}{0pt}{12pt}{6pt}
+\titleformat{\subsubsection}[hang]{\linespread{1.5}\heiti\xiaosi}{\thesubsubsection}{1em}{}{}
+\titlespacing{\subsubsection}{0pt}{0pt}{0pt}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -215,18 +234,16 @@
 \renewcommand{\sectionmark}[1]{}
 \fancypagestyle{frontmatter}{
   \fancyhf{}
-  \fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业设计报告}
-  \fancyhead[R]{\xiaowu\songti \rightmark}
-  \fancyfoot[C]{\songti\xiaowu \thepage}
+  \fancyhead[C]{\wuhao\songti 北方民族大学本科毕业论文（设计）}
+  \fancyfoot[C]{\wuhao\songti \thepage}
 }
 \fancypagestyle{mainmatter}{
   \fancyhf{}
-  \fancyhead[L]{\xiaowu\songti 浙江大学计算机科学与技术学院本科毕业设计报告}
-  \fancyhead[R]{\xiaowu\songti \thechapter \hspace{1em} \rightmark}
-  \fancyfoot[C]{\songti\xiaowu \thepage}
+  \fancyhead[C]{\wuhao\songti 北方民族大学本科毕业论文（设计）}
+  \fancyfoot[C]{\wuhao\songti \thepage}
 }
-\newcommand{\contentsformat}{\heiti\sanhao\bfseries}
-\renewcommand{\contentsname}{目录}
+\newcommand{\contentsformat}{\heiti\xiaosan\bfseries}
+\renewcommand{\contentsname}{目\hspace{2em}录} % NMU often prefers some spacing in "目录"
 \renewcommand\tableofcontents{
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -242,16 +259,20 @@
 \renewcommand{\listtablename}{\centerline{表~目~录}}
 \setcounter{tocdepth}{2}  % 设置目录的深度到 subsection
 \renewcommand{\bibname}{参考文献}
-\renewcommand{\nomname}{\centerline{术~语~表}}
+\renewcommand{\nomname}{\centerline{\heiti\xiaosan 术~语~表}}
 \renewcommand{\nomlabelwidth}{25mm}
 \renewcommand{\nompreamble}{\vspace{1em}}
 \makenomenclature
 \renewcommand{\figurename}{图} % 插图题头
 \renewcommand{\tablename}{表} % 插表题头
-\renewcommand{\captionlabeldelim}{} %% 定义如 "图(表)1: 示例" 中的间隔符号,如 ":" ,这里定义为空
-\renewcommand{\captionlabelsep}{\hspace{1em}} %定义图表编号与标题间的间隔距离
+\renewcommand{\captionfont}{\wuhao\heiti}
+\renewcommand{\captionlabelfont}{\wuhao\heiti}
+\renewcommand{\captionlabeldelim}{}
+\renewcommand{\captionlabelsep}{\hspace{1em}}
 \setlength{\belowcaptionskip}{2mm}
-\renewcommand{\footnotesize}{\xiaowu}
+\renewcommand{\footnotesize}{\wuhao\songti\linespread{1.5}\selectfont}
+\skip\footins=10mm plus 1mm minus 1mm
+\renewcommand{\footnoterule}{\kern-3pt \hrule width 0.3\textwidth \kern 2.6pt}
 \newtheoremstyle{zjutheorem}
    {9pt}{9pt}{\ttfamily}{0pt}{\lishu}{：}{0pt}{}
 \theoremstyle{zjutheorem}
@@ -263,7 +284,7 @@
 
 % HACK
 \let\oldcite=\cite
-\renewcommand{\cite}[1]{\textsuperscript{\oldcite{#1}}}
+\renewcommand{\cite}[1]{\textsuperscript{\wuhao\oldcite{#1}}}
 
 \newcolumntype{.}{D{.}{.}{2.4}}
 \AtBeginDocument{%

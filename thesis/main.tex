@@ -34,14 +34,14 @@
            {Title}
   % 作者：{中文姓名}{英文}{学号}
   \zjuauthor{姓名}{Name}{313XXXXXXXX}
-  % 指导教师：{导师中文名}{导师英文名}
-  \zjumentor{导师姓名}{Supervisor name}
-  % 个人信息：{年级}{专业名称}
+  % 指导教师：{校内导师中文名}{校内导师英文名}{校外导师中文名}
+  \zjumentor{校内导师姓名}{Supervisor Name}{校外导师姓名}
+  % 个人信息：{年级}{专业名称}{英文专业名称}
   \zjuinfo{2013级}{计算机科学与技术}{Computer Science and Technology}
   % 学院信息：{学院中文}{学院英文}
   \zjucollege{计算机科学与技术学院}{College of Computer Science and Technology}
   % 日期：{提交日期}{Submitted Date}
-  \zjudate{2017 年 6 月 5 日}{June 5, 2017}
+  \zjudate{2026 年 5 月 5 日}{May 5, 2026}
 
 %==============================================================
 
@@ -49,12 +49,10 @@
     \pagestyle{empty}
 
     \include{data/cover-zh}
-    \cleardoublepage
-    \include{data/cover-en}
-    \cleardoublepage
+    \clearpage
 
     \include{data/agreement}
-    \cleardoublepage
+    \clearpage
   }
 
   {
@@ -96,18 +94,18 @@
 
     \include{data/acknowledgment}
     \cleardoublepage
+
+    \include{data/appendix}
+    \cleardoublepage
   }
 
   {
     \backmatter
 
     \pagestyle{empty}
-
-    \include{data/assignment}
-    \cleardoublepage
-
-    \include{data/assessment}
-    \cleardoublepage
+    % 封底：通常为白页或特定的毕业设计手册附带页
+    \mbox{}
+    \clearpage
   }
 
 \end{document}
